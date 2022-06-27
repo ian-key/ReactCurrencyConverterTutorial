@@ -29,7 +29,7 @@ class CurrencyConverter extends React.Component {
 
 convert(amount, rate, equation) {
   const input = parseFloat(amount);
-  if (Number.isNan(input)) {
+  if (Number.isNaN(input)) {
     return '';
   }
   return equation(input, rate).toFixed(3);
@@ -39,16 +39,16 @@ convert(amount, rate, equation) {
 handleEuroChange(event) {
   const gbp = this.convert(event.target.value, this.state.rate, this.togbp);
   this.setState({
-    gbp: event.target.value,
-    euro
+    euro: event.target.value,
+    gbp
   });
 }
 
 handleGbpChange(event) {
   const euro = this.convert(event.target.value, this.state.rate, this.toeuro);
   this.setState({
-    euro: event.target.value,
-    gbp
+    gbp: event.target.value,
+    euro
   });
 }
 

@@ -63,7 +63,7 @@ var CurrencyConverter = function (_React$Component2) {
     key: "convert",
     value: function convert(amount, rate, equation) {
       var input = parseFloat(amount);
-      if (Number.isNan(input)) {
+      if (Number.isNaN(input)) {
         return '';
       }
       return equation(input, rate).toFixed(3);
@@ -73,8 +73,8 @@ var CurrencyConverter = function (_React$Component2) {
     value: function handleEuroChange(event) {
       var gbp = this.convert(event.target.value, this.state.rate, this.togbp);
       this.setState({
-        gbp: event.target.value,
-        euro: euro
+        euro: event.target.value,
+        gbp: gbp
       });
     }
   }, {
@@ -82,8 +82,8 @@ var CurrencyConverter = function (_React$Component2) {
     value: function handleGbpChange(event) {
       var euro = this.convert(event.target.value, this.state.rate, this.toeuro);
       this.setState({
-        euro: event.target.value,
-        gbp: gbp
+        gbp: event.target.value,
+        euro: euro
       });
     }
   }, {
